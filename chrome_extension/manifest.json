@@ -2,12 +2,21 @@
 
 {
     "manifest_version": 2,
-    "name": "One-click Kittens",
-    "description": "This extension demonstrates a browser action with kittens.",
+    "name": "Kitten Magician",
+    "description": "This kitten will make your page disappear!",
     "version": "1.0",
-    "permissions": ["https://secure.flickr.com/"],
+    "permissions": ["activeTab"],
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {   
+            "matches": ["<all_urls>"],
+            "js": ["jquery.js"]
+        }
+    ],
     "browser_action": {
-        "default_icon": "icon.png",
-        "default_popup": "popup.html"
+        "default_icon": "icon.png"
     }
 }
